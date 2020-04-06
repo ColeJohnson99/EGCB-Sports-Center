@@ -1,11 +1,12 @@
 
-$("#loginbutton").on("cilck", function(){
+$("#loginbutton").on("click", function(){
     event.preventDefault();
     let logincheck = {
         userName: $("#Username").val().trim(),
-        password: $("#password").val().trim()
-      };
-
+        password: $("#Password").val().trim()
+    };
+    
+    console.log(logincheck);
 
 
     $.ajax("/api/login/", {
