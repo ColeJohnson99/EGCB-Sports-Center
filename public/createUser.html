@@ -20,13 +20,15 @@
       <!-- <a href="/"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span> View Characters</button></a>
     </div> -->
     <div class="row">
+      <a href="https://www.nba.com">
       <img src = "../team logos.jpg" alt="nba team logos" style="width:20%;height:80%;">
+    </a>
       
       <div class="col-12">
 
         <div class="card">
           <div class="card-header">
-            <h3><strong>Add user</strong></h3>
+            <h3><strong>Create user</strong></h3>
           </div>
           <div class="card-body">
             <form method="POST" role="form">
@@ -42,14 +44,14 @@
               </div>
 
               <div class="form-group">
-                <label for="force-points">Favorite NBA Team</label>
+                <label for="team">Favorite NBA Team</label>
                 <input type="text" class="form-control" id="faveTeam">
               </div>
 
             </form>
             <br>
             <div class="text-right">
-              <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="fa fa-fire"></span> Submit</button>
+              <button type="submit" class="btn btn-primary btn-md" id="add-btn" formaction ="userquestions.html"><span class="fa fa-fire"></span>Submit</button>
             </div>
           </div>
         </div>
@@ -59,7 +61,7 @@
   </div>
 
   <script type="text/javascript">
-    // Question: What does this code do?
+    
     $("#add-btn").on("click", function(event) {
       event.preventDefault();
       var newUser = {
@@ -68,14 +70,14 @@
         faveTeam: $("#faveTeam").val().trim(),
       };
 
-      // Question: What does this code do??////it used to be for adding new Character in Star Wars app
-      $.post("/api/users", newUser)
-        .then(function(data) {
-          console.log("add.html", data);
-          alert("Adding new user...");
-        });
+      // $.post("/api/users", newUser)
+      //   .then(function(data) {
+      //     console.log("add.html", data);
+      //     alert("Adding new user...");
+      //   });
     });
   </script>
 
 </body>
 </html>
+
