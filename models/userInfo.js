@@ -1,21 +1,23 @@
 // Couldnt remember the columns we wanted, started with Name, email, and favorite team, easy to change.
 
 module.exports = function(sequelize, DataTypes) {
-    var userInfo = sequelize.define("userInfo", {
-       Username: {
+    var UserInfo = sequelize.define("UserInfo", {
+       UserID: {
            type: DataTypes.STRING,
-           allowNull: false,
+           allowNull: true,
        },
        Email: {
            type: DataTypes.STRING,
-           allowNull: false,
+           allowNull: true,
        },
-       Favorite_Team: {
+       UserPassword: {
            type: DataTypes.STRING,
-           allowNull: false,
+           allowNull: true,
        }
 
     });
-    return userInfo;
+
+
+    return UserInfo;
 }
 

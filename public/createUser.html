@@ -65,16 +65,16 @@
     $("#add-btn").on("click", function(event) {
       event.preventDefault();
       var newUser = {
-        name: $("#name").val().trim(),
-        age: $("#age").val().trim(),
-        faveTeam: $("#faveTeam").val().trim(),
+        UserID: $("#name").val().trim(),
+        Email: $("#age").val().trim(),
+        UserPassword: $("#faveTeam").val().trim(),
       };
 
-      // $.post("/api/users", newUser)
-      //   .then(function(data) {
-      //     console.log("add.html", data);
-      //     alert("Adding new user...");
-      //   });
+      $.post("/api/userInfo", newUser)
+        .then(function(data) {
+         // console.log("add.html", data);
+          alert("Adding new user...");
+        });
     });
   </script>
 
