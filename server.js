@@ -1,5 +1,6 @@
 var express = require("express");
 
+
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -23,7 +24,7 @@ app.use(express.static("public"));
 
 
 require("./routes/routes.js")(app);
-// require("./routes/post-api-routes.js")(app);
+require("./routes/userInfo-api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
