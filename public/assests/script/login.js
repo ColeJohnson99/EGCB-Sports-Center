@@ -1,9 +1,10 @@
 
 $("#loginbutton").on("click", function(){
     event.preventDefault();
+    event.stopPropagation();
     let logincheck = {
-        userName: $("#Username").val().trim(),
-        password: $("#Password").val().trim()
+        UserID: $("#Username").val().trim(),
+        UserPassword: $("#Password").val().trim()
     };
     
     console.log(logincheck);

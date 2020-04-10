@@ -13,5 +13,17 @@ module.exports = function(app) {
         })
             
         });
+        app.get("/api/login", function(req, res){
+          console.log(req.query.UserID);
+          db.UserInfo.findOne({
+            where: {
+              UserID: req.query.UserID,
+              UserPassword: req.query.UserPassword
+            },
+          }).then(function(dbuserInfo) {
+          console.log(dbuserInfo);
+          });
+        });
+
     
 }
