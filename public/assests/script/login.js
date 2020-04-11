@@ -13,8 +13,9 @@ $("#loginbutton").on("click", function(){
     $.ajax("/api/login/", {
         type: "GET",
         data: logincheck
-      }).then(function(responce) {
-        window.location.href="/sportscenter";
+      }).then(function(res) {
+        console.log(res);
+        window.location.href="/sportscenter/"+res;
         // let LoginTrueFalse = responce.body;
           
         // if (LoginTrueFalse === true){    

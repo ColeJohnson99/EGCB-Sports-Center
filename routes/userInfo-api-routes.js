@@ -22,13 +22,13 @@ module.exports = function(app) {
               UserPassword: req.query.UserPassword
             },
           }).then(function(dbuserInfo) {
-            console.log(dbuserInfo);
-          if(dbuserInfo == "null"){
+            // console.log(dbuserInfo);
+          if(dbuserInfo == null){
 
           }
           else{
-            res.send("ok");
-            // res.redirect("/sportscenter");
+            res.json(dbuserInfo.id);
+            //  res.redirect("/sportscenter/"+ dbuserInfo.id);
             // res.render("index");
             
           };

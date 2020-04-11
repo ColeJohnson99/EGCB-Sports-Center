@@ -7,6 +7,7 @@
 var path = require("path");
 let handlebars = require("express-handlebars");
 var express = require('express');
+var db = require("../models");
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -24,7 +25,22 @@ module.exports = function(app) {
   });
 
   // blog route loads blog.html
-  app.get("/sportscenter", function(req, res) {
-    res.render("index");
-  });
-};
+  app.get("/sportscenter/playerinfo", function(req, res){
+    res.render("index", );
+  })
+
+  app.get("/sportscenter/:id?", function(req, res) {
+    db.UserInfo.findOne({
+      where: {
+        id: req.params.id
+      },
+    }).then(function(data) {
+      console.log(data);
+      let hbsObject = {
+        UserID: data
+      };
+
+    res.render("index", hbsObject);
+  })
+})
+}
