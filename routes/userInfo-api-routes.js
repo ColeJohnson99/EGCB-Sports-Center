@@ -1,5 +1,6 @@
 var db = require("../models");
-
+let handlebars = require("express-handlebars");
+var express = require('express');
 //POST route for saving new user info
 module.exports = function(app) {
     app.post("/api/userInfo", function(req, res) {
@@ -21,7 +22,16 @@ module.exports = function(app) {
               UserPassword: req.query.UserPassword
             },
           }).then(function(dbuserInfo) {
-          console.log(dbuserInfo);
+            console.log(dbuserInfo);
+          if(dbuserInfo == "null"){
+
+          }
+          else{
+            res.send("ok");
+            // res.redirect("/sportscenter");
+            // res.render("index");
+            
+          };
           });
         });
 
