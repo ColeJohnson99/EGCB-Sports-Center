@@ -5,7 +5,8 @@
 // Dependencies
 // =============================================================
 var path = require("path");
-
+let handlebars = require("express-handlebars");
+var express = require('express');
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -24,6 +25,6 @@ module.exports = function(app) {
 
   // blog route loads blog.html
   app.get("/sportscenter", function(req, res) {
-    res.sendFile(path.join(__dirname,"../public/sportscenter.html"));
+    res.render("index");
   });
 };

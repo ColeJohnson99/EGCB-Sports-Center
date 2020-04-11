@@ -14,18 +14,19 @@ $("#loginbutton").on("click", function(){
         type: "GET",
         data: logincheck
       }).then(function(responce) {
-        let LoginTrueFalse = responce.body.indatabase;
+        window.location.href="/sportscenter";
+        // let LoginTrueFalse = responce.body;
           
-        if (LoginTrueFalse === true){    
-         $.ajax("/sportscenter", {
-             type: "GET"             
-             }).then(function(res){
-         res.sendFile(path.join(__dirname,"../public/sportscenter.html"));
-        });
-        }
-        else{
-        $("#Successorfail").html("Wrong password or user name!");
-        }
+        // if (LoginTrueFalse === true){    
+        //  $.ajax("/sportscenter", {
+        //      type: "GET"             
+        //      }).then(function(res){
+        //  res.sendFile(path.join(__dirname,"../public/sportscenter.html"));
+        // });
+        // }
+        // else{
+        // $("#Successorfail").html("Wrong password or user name!");
+        // }
         });
 
 });
