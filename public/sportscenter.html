@@ -20,7 +20,8 @@
   <meta name="description" content="website description" />
   <meta name="keywords" content="website keywords, website keywords" />
   <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
-  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 
 <body>
@@ -43,34 +44,51 @@
         </ul>
       </div>
     </div>
-    <div id="content_header"></div>
-    <div id="site_content">
-      <div id="banner"></div>
-	  <div id="sidebar_container">
-        <div class="sidebar">
-          <div class="sidebar_top"></div>
-          <div class="sidebar_item">
-            <!-- put sidebar items here -->
-            <h3>Sidebar stuff if we want</h3>
-            <h4>Other stuff that we could put in</h4>
-            <h5>Not sure what we would want</h5>
-            <p>Im kina excited even though I'm not the best at this hopefully you guys like it a little bit atleast.   </p>
+    <div id="colormain">
+      <div class="color1" id="leftbox">
+          <div class="color2">
+              <div id="imagediv">
+              </div>
           </div>
-          <div class="sidebar_base"></div>
+      </div>
+      <div id="rightbox">
+        <div class="color2">
+            <div class="color1" id="welcomeid">
+              Welcome  
+            </div>
+        </div>
+        <div class="color2">
+            <div class="color1" id="favteam">
+                Your favorite team:
+            </div>
         </div>
       </div>
-      <div id="content">
-        
-        <h1>Welcome to our awesome website</h1>
-        <p>Ideas Ideas Ideas</p>
-        <h2>We can put some good stuff in here too if we want</h2>
-        <p>It's gotta look semi good I think</p>
-      </div>
+  </div>
     </div>
     <div id="content_footer"></div>
     <div id="footer">
       <p>Copyright &copy; EGCB Sports Cetner
     </div>
   </div>
+  <script>
+    $( document ).ready(function() {
+    console.log( "ready!" ); 
+    var url = window.location.pathname;
+    var id = url.substring(url.lastIndexOf('/') + 1);
+    console.log(id);
+    $.ajax("/api/home/"+id, {
+        type: "GET"
+      }).then(function(data) {
+      $("#imagediv").prepend('<img id="theImg" SameSite=None src="'+data.color.url+'" />');
+        $("#colormain").css("background-color", data.color.colors1[1]);
+        $(".color1").css("background-color", data.color.colors1[2]);
+        $(".color2").css("background-color", data.color.colors1[3]);
+        $("#welcomeid").html("Welcome: "+ data.db.UserID)
+        $("#favteam").html("Your favorite Team is:" + data.db.Email);
+
+        console.log(data.color.url);
+        console.log(data);})
+});
+  </script>
 </body>
 </html>
