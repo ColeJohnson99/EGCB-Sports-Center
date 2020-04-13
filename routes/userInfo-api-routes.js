@@ -7,23 +7,7 @@ const path = require('path');
 const getColors = require('get-image-colors');
 let colorarray15 =[];
 // let teamstring = require('./string.js');
-let teamstring1 = teamlocations[teamstring];
 
-let currentteam = "/NBAlogos/" + teamstring1[0] +".png";
-let currentteamonlineurl = teamstring1[1];
-getColors(path.join(__dirname, currentteam)).then(colors => {
-    
-   colorarray = colors.map(color => color.hex());
-   console.log(colorarray);
-  colorarray.forEach(element => {
-      colorarray15.push(element);
-  });
-});
-   
-   let teamobj ={
-       colors1: colorarray15,
-       url: currentteamonlineurl
-    }
 //POST route for saving new user info
 module.exports = function(app) {
     app.post("/api/userInfo", function(req, res) {
@@ -31,7 +15,8 @@ module.exports = function(app) {
         db.UserInfo.create({
           UserID: req.body.UserID,
           Email: req.body.Email,
-          UserPassword: req.body.UserPassword
+          UserPassword: req.body.UserPassword,
+          FavTeam: req.body.FavTeam
         }).then(function(dbuserInfo) {
           res.json(dbuserInfo)
         })
@@ -64,7 +49,28 @@ module.exports = function(app) {
               id: req.params.id
             },
           }).then(function(data) {
-         
+            let teamstring = data.FavTeam;  
+            let teamstring1 = teamlocations[teamstring];
+            
+
+            let currentteam = "../NBATEAM/NBAlogos/" + teamstring1[0] +".png";
+            console.log(currentteam);
+            let currentteamonlineurl = teamstring1[1];
+            getColors(path.join(__dirname, currentteam)).then(colors => {
+                
+               colorarray = colors.map(color => color.hex());
+               console.log(colorarray);
+               colorarray15 =[];
+              colorarray.forEach(element => {
+                  colorarray15.push(element);
+              });
+            });
+               
+            let teamobj ={
+                   colors1: colorarray15,
+                   url: currentteamonlineurl
+                }
+
             let infoobject = {
               db: data,
               color: teamobj

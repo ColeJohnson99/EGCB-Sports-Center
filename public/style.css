@@ -504,3 +504,9 @@ display: flex;
  float:left;
  width: 50%;
 }
+#welcomeid{
+  font-size: 20px;
+}
+ #favteam{
+  font-size: 20px;
+}
