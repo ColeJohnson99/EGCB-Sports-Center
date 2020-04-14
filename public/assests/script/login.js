@@ -2,6 +2,7 @@ $("#Create").on("click", function(){
   window.location.href="/userquestions";
 })
 
+
 $("#loginbutton").on("click", function(){
     event.preventDefault();
     event.stopPropagation();
