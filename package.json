@@ -21,7 +21,8 @@
     "express-handlebars": "^4.0.3",
     "mysql": "^2.18.1",
     "mysql2": "^2.1.0",
-    "sequelize": "^5.21.6"
+    "sequelize": "^5.21.6",
+    "unirest": "^0.6.0"
   },
   "devDependencies": {},
   "description": ""
