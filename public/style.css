@@ -482,3 +482,31 @@ table tr td
 { background: #E5E5DB;
   color: #47433F;
   border-top: 1px solid #FFF;}
+
+#colormain{
+padding: 20px;
+display: flex;
+  }
+.color1{
+  padding: 20px;
+}
+.color2{
+  padding: 20px;
+}
+#theImg{
+  width:100%;
+}
+#leftbox{
+  width: 50%;
+
+}
+#rightbox{
+ float:left;
+ width: 50%;
+}
+#welcomeid{
+  font-size: 20px;
+}
+ #favteam{
+  font-size: 20px;
+}

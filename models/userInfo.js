@@ -13,7 +13,12 @@ module.exports = function(sequelize, DataTypes) {
        UserPassword: {
            type: DataTypes.STRING,
            allowNull: true,
+       },
+       FavTeam: {
+        type: DataTypes.STRING,
+        allowNull: true,
        }
+    
 
     });
 

@@ -49,7 +49,9 @@
                 <input type="text" class="form-control" id="faveTeam">
               </div>
               <h4>Select Your Favorite Team</h4>
-              <!-- <select class="form-group" name="Teams">
+
+              <select class="form-group" name="Teams" id="teamname">
+
                 <option value="AtlantaHawks">Alanta Hawks</option> 
                 <option value="BostonCeltics">Boston Celtics </option>
                 <option value="BrooklynNets">Brooklyn Nets </option>
@@ -80,7 +82,7 @@
                 <option value="TorontoRaptors">Toronto Raptors </option> 
                 <option value="UtahJazz">Utah Jazz </option> 
                 <option value="WashingtonWizards">Washington Wizards </option> 
-              </select> -->
+              </select> 
             </form>
             <br>
             <div class="text-right">
@@ -101,6 +103,7 @@
         UserID: $("#name").val().trim(),
         Email: $("#age").val().trim(),
         UserPassword: $("#faveTeam").val().trim(),
+        FavTeam: $("#teamname").val()
       };
 
       $.post("/api/userInfo", newUser)

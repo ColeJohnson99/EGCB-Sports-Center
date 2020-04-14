@@ -37,10 +37,12 @@ module.exports = function(app) {
     }).then(function(data) {
       console.log(data);
       let hbsObject = {
-        UserID: data
+        burgers: data
       };
+      // res.send(hbsObject);
+    res.sendFile(path.join(__dirname,"../public/sportscenter.html"));
+    
 
-    res.render("index", hbsObject);
   })
 })
 }
